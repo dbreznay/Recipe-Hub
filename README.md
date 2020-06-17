@@ -22,4 +22,6 @@ To get started, type wanted ingredients into the text area and click the *submit
 
 ## Authors: 
 
-* **Piper Pearson, Dylan Breznay, Whitney Monk**
+* **Whitney Monk**
+* **Piper Pearson**
+* **Dylan Breznay**
