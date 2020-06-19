@@ -9,30 +9,36 @@
     <script src="https://kit.fontawesome.com/1fd481dcff.js" crossorigin="anonymous"></script> 
   </head>
   <body>
-    <nav class="navbar" role="navigation" aria-label="main navigation">
-      <div class="navbar-brand">
-        <a class="navbar-item" href="https://dbreznay.github.io/Recipe-Hub/">
-        <i class="fas fa-pizza-slice"> Recipe Hub </i>
-        </a>
-    
-        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </a>
-      </div>
-    </nav>
-  <section class="section">
     <div class="container">
-      <h1 class="title">
-        Recipe Hub
-      </h1>
-      <input type="text" id="input"> Input Here </input>
-      <p class="subtitle">
-      <strong></strong>
-      </p>
+      
+      <!--Search Input-->
+      <div class="row">
+          <div class = "col-md-8">
+                  <form id="search-box">
+                      <input type="text" id="ingredient-search" placeholder=" Enter Your Ingredients (Please use a comma in between each ingredient)">
+                      <button class="btn" type="submit" name="action" id="submit">Submit</button>
+                  </form>
+          </div>
+      </div>
+
+      <div class="row">
+              <div class= "col-md-4" id = "joke-display">
+                  <!--Joke Displayed Here Using jQuery-->
+                  <span id="joke-display"></span>
+              </div>
+      </div>
+        <!--Recipes displayed here using jQuery-->
+      <section id ="recipe-section">
+        No Results to Show
+
+      </section>
+          
+         
+  
+
+      
     </div>
-  </section>
+
 
   <script src="script.js"></script>
   </body>
