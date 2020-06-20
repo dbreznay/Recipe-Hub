@@ -8,30 +8,120 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
     <script src="https://kit.fontawesome.com/1fd481dcff.js" crossorigin="anonymous"></script> 
   </head>
+  
+  
   <body>
-    <div class="container">
+    
+  <div class="container">
       
-      <!--Search Input-->
-      <div class="row">
-          <div class = "col-md-8">
-                  <form id="search-box">
-                      <input type="text" id="ingredient-search" placeholder=" Enter Your Ingredients (Please use a comma in between each ingredient)">
-                      <button class="btn" type="submit" name="action" id="submit">Submit</button>
-                  </form>
+  <!--Header-->
+  <header>
+        <img src="rhHubHeaderLogo.png" alt="RecipeHub" class="rhLogoImg">
+  </header>
+  
+  <!---Filler-->
+      
+  <br><br>
+     
+     
+  <!--Search Input Box-->
+    <div class="box">
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+                <!---Search bar goes here-->
+                <div class="field">
+                <br><br>
+                    <label class="label">What Ingredients Do You Have? </label>
+                <br><br>
+                        
+                <div class="control">
+                  <input class="input" type="text"
+                   id ="ingredient-search" placeholder="Enter Your Ingredients (Please use a comma in between each ingredient)">
+                </div>
+                <br><br>
+                <!--submit button-->
+                <input class="button" type="submit" id="submit" value="Create Recipes">
+                <br><br>
+                        
+                </div>
+             </div>
           </div>
-      </div>
-
-      <div class="row">
-              <div class= "col-md-4" id = "joke-display">
-                  <!--Joke Displayed Here Using jQuery-->
-                  <span id="joke-display"></span>
+       </article>
+     </div>
+       
+<!---Filler-->
+<br><br>
+       
+      <!--Joke of the day box-->
+      <div class="box">
+        <article class="media">
+          <div class="media-content" id ="joke-display">
+            <div class="content">
+                
+              <!---Joke of the day goes here-->
+                <p>Here is the joke of the day.</p><span id="joke-display"></span>
+               </div>
+              <br><br>
+                        
               </div>
-      </div>
-        <!--Recipes displayed here using jQuery-->
-      <section id ="recipe-section">
-        No Results to Show
+            </div>
+          </div>
+         </article>
+       </div>
+       
+         <!---Filler-->
+       <br><br>
+       
 
-      </section>
+     
+        <!--Recipes Options displayed here using jQuery-->
+        <div class = "box">
+         <article class="media">
+           <div class="media-content">
+            <div class="content" id="recipe-section">
+             <div class="field">
+              <br><br>
+              <label class="label"> Your Recipes: </label>
+              <br><br>
+             </div>
+            </div>
+            
+          </article>
+        </div>
+         
+      <!---Filler-->
+       <br><br>
+       <br><br>
+        
+
+        <!--Selected Recipe Info-->
+        <div class = "box">
+          <article class="media">
+            <div class="media-content">
+             <div class="content" id="user-recipe-info">
+              <div class="field">
+               <br><br>
+               <label class="label"> How to Cook: </label>
+               <br><br>
+              </div>
+             </div>
+             
+           </article>
+         </div>
+
+          
+            
+        
+        
+      
+       <!---Filler-->
+       <br><br>
+       <br><br>
+       <br><br>
+       <br><br>
+       <br><br>
+       <br><br>
           
          
   
