@@ -56,5 +56,7 @@ var ajaxRecipeId = function() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+
+        let recipeLink = response.sourceUrl;
     });
 };
