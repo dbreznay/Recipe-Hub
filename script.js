@@ -15,6 +15,11 @@ var ajaxJoke = function() {
     
     $.ajax(settings).done(function (response) {
         console.log(response);
+
+        let joke = response.content;
+
+    
+
     });
 };
 
@@ -30,6 +35,10 @@ var searchRecipes = function() {
         method: "GET"
     }).then(function (response) {
         console.log(response);
+
+        let recipeTitle = response.title;
+        let recipeImg = response.image;
+        let recipeId = response.id;
     });
 };
 
