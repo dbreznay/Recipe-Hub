@@ -1,4 +1,29 @@
+//form validation function
 var userInput = "";
+
+
+function validateSearch() {
+  if (userInput === "") {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+
+$("#joke-display").hide();
+$("#recipe-section").hide();
+
+
+
+$("#submit").on("click", function runRecipe(event) {
+  event.preventDefault();
+  userInput = $("#ingredient-search").val();
+  if (validateSearch() === true) {
+    
+    $("#joke-display").show();
+    $("#recipe-section").show();   
+    $("search-box").hide();
 
 
 var ajaxJoke = function() {
@@ -16,7 +41,7 @@ var ajaxJoke = function() {
     $.ajax(settings).done(function (response) {
         console.log(response);
 
-        let joke = response.content;
+        var joke = response.content;
 
     
 
@@ -27,8 +52,8 @@ ajaxJoke();
 
 var searchRecipes = function() {
 
-    let APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    let queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
+    var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+    var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
         url: queryURL,
@@ -36,9 +61,9 @@ var searchRecipes = function() {
     }).then(function (response) {
         console.log(response);
 
-        let recipeTitle = response.title;
-        let recipeImg = response.image;
-        let recipeId = response.id;
+        var recipeTitle = response.title;
+        var recipeImg = response.image;
+        var recipeId = response.id;
     });
 };
 
@@ -48,8 +73,8 @@ searchRecipes();
 
 var ajaxRecipeId = function() {
 
-    let APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    let queryUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=" + APIkey
+    var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+    var queryUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=" + APIkey;
 
     $ajax ({
         url: queryUrl,
@@ -57,6 +82,7 @@ var ajaxRecipeId = function() {
     }).then(function (response) {
         console.log(response);
 
-        let recipeLink = response.sourceUrl;
+        var recipeLink = response.sourceUrl;
     });
 };
+}});
