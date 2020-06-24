@@ -39,8 +39,8 @@ var ajaxJoke = function() {
     }
     
     
-    });
-};
+  
+
 
 ajaxJoke();
 
@@ -79,4 +79,4 @@ var ajaxRecipeId = function() {
         var recipeLink = response.sourceUrl;
     });
 };
-}});
+}}});
