@@ -1,7 +1,12 @@
-//form validation function
+
 var userInput = "";
+var recipeIds = [];
+var sourceUrls = [];
+var recipeImgs = [];
+var recipeTitles = [];
+var url; 
 
-
+//form validation function
 function validateSearch() {
   if (userInput === "") {
     return false;
@@ -13,7 +18,6 @@ function validateSearch() {
 
 $("#joke-display").hide();
 $("#recipe-section").hide();
-
 
 
 $("#submit").on("click", function runRecipe(event) {
@@ -57,32 +61,38 @@ var searchRecipes = function() {
 
     $.ajax({
         url: queryURL,
-        method: "GET"
+        method: "GET",
     }).then(function (response) {
         console.log(response);
+        for(i=0; i < response.length; i++) {
+            recipeIds.push(response[i].id);
+            recipeTitles.push(response[i].title);
+            recipeImgs.push(response[i].image);
+            $("recipeTitle").append(recipeTitles[i]);
+            $("recipeImage").append(recipeImgs[i]);
+        }
+        ajaxRecipeID();
+    })
 
-        var recipeTitle = response.title;
-        var recipeImg = response.image;
-        var recipeId = response.id;
-    });
 };
 
 searchRecipes();
 
-
-
-var ajaxRecipeId = function() {
-
-    var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    var queryUrl = "https://api.spoonacular.com/recipes/" + recipeId + "/information?apiKey=" + APIkey;
-
-    $ajax ({
-        url: queryUrl,
-        method: "GET"
-    }).then(function (response) {
-        console.log(response);
-
-        var recipeLink = response.sourceUrl;
-    });
-};
+var ajaxRecipeID= function() {
+   
+    for(i=0; i < recipeIds.length; i++) {
+        var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+        var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
+        $.ajax({
+            url: secondQueryUrl,
+            method: "GET"
+        }).then(function (secondaryResponse) {
+            for(i=0; i < secondaryResponse.length; i++) {
+               sourceUrls.push(secondaryResponse[i].sourceUrl);
+               $("sourceUrl").append(sourceUrls[i]);
+            } 
+        });
+    }
+        console.log(sourceUrls);
+    }
 }});
