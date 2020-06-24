@@ -1,4 +1,3 @@
-
 var userInput = "";
 var recipeIds = [];
 var sourceUrls = [];
@@ -40,7 +39,7 @@ var ajaxJoke = function() {
             "x-rapidapi-host": "joke3.p.rapidapi.com",
             "x-rapidapi-key": "eb678bae5dmsh447c5c8972466f2p12564djsn27078449d11c"
         }
-    }
+    };
     
     $.ajax(settings).done(function (response) {
         console.log(response);
@@ -73,7 +72,7 @@ var searchRecipes = function() {
             $(".recipeImage").append(recipeImgs[i]);
         }
         ajaxRecipeID();
-    })
+    });
 
 };
 
@@ -89,12 +88,13 @@ var ajaxRecipeID= function() {
             url: secondQueryUrl,
             method: "GET"
         }).then(function (secondaryResponse) {
-            for(i=0; i < secondaryResponse.length; i++) {
-               sourceUrls.push(secondaryResponse[i].sourceUrl);
-               $(".sourceUrl").append(sourceUrls[i]);
-            } 
+            var sourceUrl = secondaryResponse.sourceUrl;
+            sourceUrls.push(sourceUrl);
+            $(".sourceUrl").append(sourceUrl);
+            
         });
     }
+        console.log(secondQueryUrl);
         console.log(sourceUrls);
-    }
+    };
 }});
