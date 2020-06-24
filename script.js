@@ -42,9 +42,15 @@ var ajaxJoke = function() {
         }
     }
     
-    
-  
+    $.ajax(settings).done(function (response) {
+        console.log(response);
 
+        var joke = response.content;
+
+    
+
+    });
+};
 
 ajaxJoke();
 
@@ -72,4 +78,21 @@ var searchRecipes = function() {
 
 searchRecipes();
 
-
+var ajaxRecipeID= function() {
+   
+    for(i=0; i < recipeIds.length; i++) {
+        var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+        var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
+        $.ajax({
+            url: secondQueryUrl,
+            method: "GET"
+        }).then(function (secondaryResponse) {
+            for(i=0; i < secondaryResponse.length; i++) {
+               sourceUrls.push(secondaryResponse[i].sourceUrl);
+               $("sourceUrl").append(sourceUrls[i]);
+            } 
+        });
+    }
+        console.log(sourceUrls);
+    }
+}});
