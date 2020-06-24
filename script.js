@@ -94,7 +94,7 @@ var ajaxRecipeID= function() {
             var sourceUrl = secondaryResponse.sourceUrl;
             sourceUrls.push(sourceUrl);
             // $(".sourceUrl").append(sourceUrl);
-            
+    
         });
     }
         console.log(secondQueryUrl);
@@ -126,4 +126,5 @@ var ajaxRecipeID= function() {
             $("#recipe-section").append(recipeResult);
         }
     }
+    showRecipe();
 }});
