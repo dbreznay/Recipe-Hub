@@ -44,12 +44,12 @@ var ajaxJoke = function() {
     
     $.ajax(settings).done(function (response) {
         console.log(response);
-
-        var joke = response.content;
-
-    
-
+        
+        $("#joke-display").append(response.content);
+       
     });
+
+   
 };
 
 ajaxJoke();
