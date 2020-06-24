@@ -89,12 +89,13 @@ var ajaxRecipeID= function() {
             url: secondQueryUrl,
             method: "GET"
         }).then(function (secondaryResponse) {
-            for(i=0; i < secondaryResponse.length; i++) {
-               sourceUrls.push(secondaryResponse[i].sourceUrl);
-               $(".sourceUrl").append(sourceUrls[i]);
-            } 
+            var sourceUrl = secondaryResponse.sourceUrl;
+            sourceUrls.push(sourceUrl);
+            $(".sourceUrl").append(sourceUrl);
+            
         });
     }
+        console.log(secondQueryUrl);
         console.log(sourceUrls);
     }
 }});
