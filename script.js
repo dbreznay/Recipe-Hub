@@ -42,6 +42,9 @@ var ajaxJoke = function() {
         console.log(response);
 
         var joke = response.content;
+        joke.push(response);
+        document.getElementById("joke-display").innerHTML = joke;
+        
 
     
 
