@@ -14,11 +14,10 @@ To get started, type wanted ingredients into the text area and click the *submit
 - HTML
 - CSS
 - Bulma CSS Framework 
-- Vanilla JavaScript
 - jQuery
 - Spoonacular API
-- Joke API 
-- *Third party API*
+- Rapid Joke API 
+- Font Awesome
 
 ## Authors: 
 

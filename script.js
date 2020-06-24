@@ -16,8 +16,8 @@ function validateSearch() {
 }
 
 
-$("#joke-display").hide();
-$("#recipe-section").hide();
+$("#display-joke").hide();
+$("#recipe-output").hide();
 
 
 $("#submit").on("click", function runRecipe(event) {
@@ -25,9 +25,9 @@ $("#submit").on("click", function runRecipe(event) {
   userInput = $("#ingredient-search").val();
   if (validateSearch() === true) {
     
-    $("#joke-display").show();
-    $("#recipe-section").show();   
-    $("search-box").hide();
+    $("#display-joke").show();
+    $("#recipe-output").show();   
+    // $("#input-box").hide();
 
 
 var ajaxJoke = function() {
@@ -56,7 +56,8 @@ ajaxJoke();
 
 var searchRecipes = function() {
 
-    var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+    // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+    var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
     var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
@@ -68,8 +69,8 @@ var searchRecipes = function() {
             recipeIds.push(response[i].id);
             recipeTitles.push(response[i].title);
             recipeImgs.push(response[i].image);
-            $("recipeTitle").append(recipeTitles[i]);
-            $("recipeImage").append(recipeImgs[i]);
+            $(".recipeTitle").append(recipeTitles[i]);
+            $(".recipeImage").append(recipeImgs[i]);
         }
         ajaxRecipeID();
     })
@@ -81,7 +82,8 @@ searchRecipes();
 var ajaxRecipeID= function() {
    
     for(i=0; i < recipeIds.length; i++) {
-        var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+        // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
+        var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
@@ -89,7 +91,7 @@ var ajaxRecipeID= function() {
         }).then(function (secondaryResponse) {
             for(i=0; i < secondaryResponse.length; i++) {
                sourceUrls.push(secondaryResponse[i].sourceUrl);
-               $("sourceUrl").append(sourceUrls[i]);
+               $(".sourceUrl").append(sourceUrls[i]);
             } 
         });
     }
