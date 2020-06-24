@@ -1,10 +1,10 @@
+
 var userInput = "";
 var recipeIds = [];
 var sourceUrls = [];
 var recipeImgs = [];
 var recipeTitles = [];
 var url; 
-var recipeResults = [];
 
 //form validation function
 function validateSearch() {
@@ -40,7 +40,7 @@ var ajaxJoke = function() {
             "x-rapidapi-host": "joke3.p.rapidapi.com",
             "x-rapidapi-key": "eb678bae5dmsh447c5c8972466f2p12564djsn27078449d11c"
         }
-    };
+    }
     
     $.ajax(settings).done(function (response) {
         console.log(response);
@@ -56,9 +56,8 @@ ajaxJoke();
 
 var searchRecipes = function() {
 
-    var APIkey = "5cf489adf5094144b03e045fbe2bc569";
-    // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    // var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
+    var APIkey = "e9152c22cf0f43a3a5c697ea8bf6d752";
+    
     var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
@@ -70,11 +69,11 @@ var searchRecipes = function() {
             recipeIds.push(response[i].id);
             recipeTitles.push(response[i].title);
             recipeImgs.push(response[i].image);
-            // $(".recipeTitle").append(recipeTitles[i]);
-            // $(".recipeImage").append(recipeImgs[i]);
+            $(".recipeTitle").append(recipeTitles[i]);
+            $(".recipeImage").append(recipeImgs[i]);
         }
         ajaxRecipeID();
-    });
+    })
 
 };
 
@@ -83,48 +82,20 @@ searchRecipes();
 var ajaxRecipeID= function() {
    
     for(i=0; i < recipeIds.length; i++) {
-        var APIkey = "5cf489adf5094144b03e045fbe2bc569";
-        // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-        // var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
+        var APIkey = "e9152c22cf0f43a3a5c697ea8bf6d752";
+        
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
             method: "GET"
         }).then(function (secondaryResponse) {
-            var sourceUrl = secondaryResponse.sourceUrl;
-            sourceUrls.push(sourceUrl);
-            // $(".sourceUrl").append(sourceUrl);
-    
+            for(i=0; i < secondaryResponse.length; i++){
+               sourceUrls.push(secondaryResponse[i].sourceUrl);
+               $(".sourceUrl").append(sourceUrls[i]);
+            } 
         });
     }
         console.log(secondQueryUrl);
         console.log(sourceUrls);
-    };
-
-    function showRecipe(){
-        for (var i = 0; i <response.length; i++){
-
-
-            var recipeResult = $("<div>");
-            recipeResult.attr("class", "recipe-result");
-
-            var recipeTitle = $("<div>");
-            recipeTitle.html("Title: " + recipeTitles[i]);
-            recipeTitle.attr("class", "recipe-title");
-
-            var recipeImage = $("<img>");
-            recipeImage.attr("src", recipeImgs[i]);
-            recipeImage.attr("class", "recipe-img")
-
-            var recipeLink = $("<a>");
-            recipeLink.attr("href", sourceUrls[i]);
-            recipeLink.attr("class", "recipe-link");
-            recipeLink.text("Recipe Link")
-            console.log(thisLink);
-
-            recipeResult.append(recipeTitle, recipeImage, recipeLink);
-            $("#recipe-section").append(recipeResult);
-        }
     }
-    showRecipe();
 }});
