@@ -4,6 +4,7 @@ var sourceUrls = [];
 var recipeImgs = [];
 var recipeTitles = [];
 var url; 
+var recipeResults = [];
 
 //form validation function
 function validateSearch() {
@@ -55,8 +56,9 @@ ajaxJoke();
 
 var searchRecipes = function() {
 
+    var APIkey = "5cf489adf5094144b03e045fbe2bc569";
     // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
+    // var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
     var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
@@ -68,8 +70,8 @@ var searchRecipes = function() {
             recipeIds.push(response[i].id);
             recipeTitles.push(response[i].title);
             recipeImgs.push(response[i].image);
-            $(".recipeTitle").append(recipeTitles[i]);
-            $(".recipeImage").append(recipeImgs[i]);
+            // $(".recipeTitle").append(recipeTitles[i]);
+            // $(".recipeImage").append(recipeImgs[i]);
         }
         ajaxRecipeID();
     });
@@ -81,8 +83,9 @@ searchRecipes();
 var ajaxRecipeID= function() {
    
     for(i=0; i < recipeIds.length; i++) {
+        var APIkey = "5cf489adf5094144b03e045fbe2bc569";
         // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-        var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
+        // var APIkey = "5be39d3503d6419bae8d18ae2132f3ee";
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
@@ -90,11 +93,37 @@ var ajaxRecipeID= function() {
         }).then(function (secondaryResponse) {
             var sourceUrl = secondaryResponse.sourceUrl;
             sourceUrls.push(sourceUrl);
-            $(".sourceUrl").append(sourceUrl);
+            // $(".sourceUrl").append(sourceUrl);
             
         });
     }
         console.log(secondQueryUrl);
         console.log(sourceUrls);
     };
+
+    function showRecipe(){
+        for (var i = 0; i <response.length; i++){
+
+
+            var recipeResult = $("<div>");
+            recipeResult.attr("class", "recipe-result");
+
+            var recipeTitle = $("<div>");
+            recipeTitle.html("Title: " + recipeTitles[i]);
+            recipeTitle.attr("class", "recipe-title");
+
+            var recipeImage = $("<img>");
+            recipeImage.attr("src", recipeImgs[i]);
+            recipeImage.attr("class", "recipe-img")
+
+            var recipeLink = $("<a>");
+            recipeLink.attr("href", sourceUrls[i]);
+            recipeLink.attr("class", "recipe-link");
+            recipeLink.text("Recipe Link")
+            console.log(thisLink);
+
+            recipeResult.append(recipeTitle, recipeImage, recipeLink);
+            $("#recipe-section").append(recipeResult);
+        }
+    }
 }});
