@@ -2,8 +2,21 @@ body {
     background-image: url("rHubBackground.png");
     background-color: #cccccc;
    }
-.rhLogoImg {
+
+header {
+    height: 160px;
+    width: 475px;
+    background-color: rgba(139,69,19,0.5);
     margin-left: 30%;
+}
+   
+    
+
+.rhLogoImg {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    
+    
 }
 
 
@@ -19,4 +32,4 @@ body {
 
 }
 
-    
+.
