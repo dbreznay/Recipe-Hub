@@ -57,9 +57,9 @@ ajaxJoke();
 //Spoonacular API AJAX call that pulls the title, id, and image
 var searchRecipes = function() {
     // var APIkey = "0d007a394f44487aa86b3cf24b6d61b1";
-    // var APIkey = "73f2fbc6d1fd4174bcea04f80c36aec4";
-    // var APIkey = "918af980aa794f50aa2c97d72be80d4e";
-    var APIkey = "dc32c6a8586a4a5584bb205fec980b90";
+    // var APIkey = "66b398a7d9a14713aa514e72a4359574"
+    var APIkey = "73f2fbc6d1fd4174bcea04f80c36aec4";
+    
     var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
@@ -73,7 +73,7 @@ var searchRecipes = function() {
             recipeImgs.push(response[i].image);
 
             //This is appending the image and titles to the page
-            $(".recipeTitle").append(recipeTitles[i]);
+            $(".recipeTitle").append(recipeTitles[i] + ",");
             $(".recipeImage").append("<img src=" + recipeImgs[i] + ">");
         }
         //Here we call the RecipeId function so that the ID's can be used in the next function
@@ -88,10 +88,9 @@ searchRecipes();
 var ajaxRecipeID= function() {
    //For loop to loop through the above IDs 
     for(i=0; i < recipeIds.length; i++) {
-        // var APIkey = "0d007a394f44487aa86b3cf24b6d61b1";
-        // var APIkey = "73f2fbc6d1fd4174bcea04f80c36aec4";
-        // var APIkey = "918af980aa794f50aa2c97d72be80d4e";
-        var APIkey = "dc32c6a8586a4a5584bb205fec980b90";
+        // var APIkey = "7f9700f622fe4443983e0143aa4f4b67";
+        // var APIkey = "5b0bd6d01bbf4e1e8cce66eebc63b460";
+        var APIkey = "918af980aa794f50aa2c97d72be80d4e";
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
@@ -100,7 +99,7 @@ var ajaxRecipeID= function() {
             var sourceUrl = secondaryResponse.sourceUrl;
             sourceUrls.push(sourceUrl);
             //This is where the links are appended to the page
-            $(".sourceUrl").append("<a href="+ sourceUrl +  ">" + "Recipe Link" + "</a>");
+            $(".sourceUrl").append("<a href="+ sourceUrl +  ">" + "Recipe Link" + "," + "</a>");
             
         });
     }
