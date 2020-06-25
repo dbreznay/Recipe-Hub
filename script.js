@@ -89,8 +89,8 @@ var ajaxRecipeID= function() {
    //For loop to loop through the above IDs 
     for(i=0; i < recipeIds.length; i++) {
         // var APIkey = "7f9700f622fe4443983e0143aa4f4b67";
-        // var APIkey = "5b0bd6d01bbf4e1e8cce66eebc63b460";
-        var APIkey = "918af980aa794f50aa2c97d72be80d4e";
+         var APIkey = "5b0bd6d01bbf4e1e8cce66eebc63b460";
+        
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
