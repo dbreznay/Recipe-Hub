@@ -68,7 +68,7 @@ var searchRecipes = function() {
             recipeTitles.push(response[i].title);
             recipeImgs.push(response[i].image);
             $(".recipeTitle").append(recipeTitles[i]);
-            $(".recipeImage").append(recipeImgs[i]);
+            $(".recipeImage").append("<img src=" + recipeImgs[i] + ">");
         }
         ajaxRecipeID();
     });
