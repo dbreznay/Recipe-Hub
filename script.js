@@ -73,8 +73,8 @@ var searchRecipes = function() {
             recipeImgs.push(response[i].image);
 
             //This is appending the image and titles to the page
-            $(".recipeTitle").append(recipeTitles[i] + ",");
-            $(".recipeImage").append("<img src=" + recipeImgs[i] + ">");
+            $(".recipeTitle").append("<h4>" + recipeTitles[i] + "</h4>");
+            $(".recipeTitle").append("<img src=" + recipeImgs[i] + ">");
         }
         //Here we call the RecipeId function so that the ID's can be used in the next function
         ajaxRecipeID();
