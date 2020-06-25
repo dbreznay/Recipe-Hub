@@ -8,7 +8,7 @@ I WANT an application that shows me recipes based off of ingredient input
 SO THAT I can create quick healthy meals for myself or my family
 ```
 ## Getting Started
-To get started, type wanted ingredients into the text area and click the *submit* button.
+To get started, type wanted ingredients into the text area and click the *CREATE RECIPE* button.
 
 ## Built With
 - HTML
