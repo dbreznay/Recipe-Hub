@@ -1,6 +1,11 @@
+* {
+    font-family: 'Lato', sans-serif;
+}
+
 body {
     background-image: url("rHubBackground.png");
     background-color: #cccccc;
+    font-family: 'Lato', sans-serif;
    }
 
 header {
@@ -32,4 +37,4 @@ header {
 
 }
 
-.
+
