@@ -25,3 +25,6 @@ To get started, type wanted ingredients into the text area and click the *submit
 * **Whitney Monk**
 * **Piper Pearson**
 * **Dylan Breznay**
+
+## Application Demo 
+![Screen Shot 2020-06-25 at 5 16 34 PM](https://user-images.githubusercontent.com/60904436/85801109-cbcbb300-b707-11ea-8b04-483cb26e0106.png)
