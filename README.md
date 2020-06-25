@@ -18,6 +18,7 @@ To get started, type wanted ingredients into the text area and click the *submit
 - Spoonacular API
 - Rapid Joke API 
 - Font Awesome
+- Google Fonts
 
 ## Authors: 
 
