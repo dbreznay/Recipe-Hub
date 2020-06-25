@@ -55,8 +55,7 @@ ajaxJoke();
 
 var searchRecipes = function() {
 
-    // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-    var APIkey = "e9152c22cf0f43a3a5c697ea8bf6d752";
+    var APIkey = "0bca176fe3eb43069d0a52e1ad31f1ef";
     var queryURL = "https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + APIkey + "&ingredients=" + userInput;
 
     $.ajax({
@@ -81,8 +80,7 @@ searchRecipes();
 var ajaxRecipeID= function() {
    
     for(i=0; i < recipeIds.length; i++) {
-        // var APIkey = "2f4280fc895d40be90a0aea15ecda433";
-        var APIkey = "e9152c22cf0f43a3a5c697ea8bf6d752";
+        var APIkey = "0bca176fe3eb43069d0a52e1ad31f1ef";
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
