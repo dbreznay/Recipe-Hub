@@ -45,7 +45,7 @@ var ajaxJoke = function() {
     $.ajax(settings).done(function (response) {
         console.log(response);
        //This appends the jokes to the page 
-        $("#joke-display").append(response.content);
+        $("#joke-display").append("<h3>" + response.content + "</h3>");
        
     });
 
