@@ -45,7 +45,7 @@ var ajaxJoke = function() {
     $.ajax(settings).done(function (response) {
         console.log(response);
        //This appends the jokes to the page 
-        $("#joke-display").append(response.content);
+        $("#joke-display").append("<h4>" + response.content + "</h4>");
        
     });
 
@@ -73,8 +73,8 @@ var searchRecipes = function() {
             recipeImgs.push(response[i].image);
 
             //This is appending the image and titles to the page
-            $(".recipeTitle").append(recipeTitles[i] + ",");
-            $(".recipeImage").append("<img src=" + recipeImgs[i] + ">");
+            $(".recipeTitle").append("<h4>" + recipeTitles[i] + "</h4>");
+            $(".recipeTitle").append("<img src=" + recipeImgs[i] + ">");
         }
         //Here we call the RecipeId function so that the ID's can be used in the next function
         ajaxRecipeID();
@@ -89,8 +89,8 @@ var ajaxRecipeID= function() {
    //For loop to loop through the above IDs 
     for(i=0; i < recipeIds.length; i++) {
         // var APIkey = "7f9700f622fe4443983e0143aa4f4b67";
-        // var APIkey = "5b0bd6d01bbf4e1e8cce66eebc63b460";
-        var APIkey = "918af980aa794f50aa2c97d72be80d4e";
+         var APIkey = "5b0bd6d01bbf4e1e8cce66eebc63b460";
+        
         var secondQueryUrl = "https://api.spoonacular.com/recipes/" + recipeIds[i] + "/information?apiKey=" + APIkey;
         $.ajax({
             url: secondQueryUrl,
